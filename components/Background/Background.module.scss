@@ -3,7 +3,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  // background-color: red;
+  z-index: -1;
   overflow: hidden;
 
   position: absolute;
@@ -24,4 +24,12 @@
   text-transform: uppercase;
   text-align: center;
   opacity: var(--__title-opacity__, 1);
+}
+
+.illustrationsContainer {
+  opacity: .37;
+
+  svg {
+    filter: blur(234px);
+  }
 }
