@@ -16,7 +16,7 @@ const buttons = [
   {
     key: 'whatsapp',
     icon: 'whatsapp',
-    href: '+5492944363281' // TODO
+    href: 'https://wa.me/5492944363281'
   },
   {
     key: 'linkedin',
