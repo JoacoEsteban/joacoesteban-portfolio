@@ -4,7 +4,24 @@
   width: 100vw;
   height: 100vh;
   // background-color: red;
+  overflow: hidden;
 
   position: absolute;
   pointer-events: none;
+
+  .titlesContainer {
+    --__title-opacity__: .04;
+  }
+}
+
+.backgroundTitle {
+  font-family: var(--chakra-fonts-body);
+  font-style: normal;
+  font-weight: normal;
+  font-size: Max(Min(5.7vw, 100px), 30px);
+  line-height: 125px;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  text-align: center;
+  opacity: var(--__title-opacity__, 1);
 }
