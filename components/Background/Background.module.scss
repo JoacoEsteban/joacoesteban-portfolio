@@ -10,7 +10,7 @@
   pointer-events: none;
 
   .titlesContainer {
-    --__title-opacity__: .04;
+    opacity: .04;
   }
 }
 
@@ -23,13 +23,32 @@
   letter-spacing: 0.23em;
   text-transform: uppercase;
   text-align: center;
-  opacity: var(--__title-opacity__, 1);
+
+  animation: three-step-fade 5s var(--bezier-symmetric) infinite;
+  animation-delay: calc(var(--_index, 0) * .15s);
 }
 
 .illustrationsContainer {
-  opacity: .37;
+  opacity: .75;
+
 
   svg {
     filter: blur(234px);
+    animation: three-step-fade 15s var(--bezier-symmetric) infinite;
+  }
+
+}
+
+@keyframes three-step-fade {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

@@ -13,7 +13,7 @@ export default function Hero () {
           <Container>
             {
               [...Array(11)].map((e, i) =>
-                <div key={i} className={styles.backgroundTitle}>
+                <div key={i} className={styles.backgroundTitle} style={{ '--_index': i } as React.CSSProperties}>
                   Full Stack Developer
                 </div>
               )
