@@ -1,15 +1,21 @@
-import { Container, Heading, Text } from '@chakra-ui/react'
-// import { Button, Flex } from '@chakra-ui/react'
+import { Box, Container, Heading, Text } from '@chakra-ui/react'
+
 export default function Hero () {
   return (
     <div>
-      <Container>
-        <Heading as={'h6'}>
-          <Text align={'center'}>
-            Full-Stack Web Developer
+      <Container margin="auto">
+        <Heading as={'h1'} size={'3xl'} fontWeight={'medium'} marginBottom={5}>
+          <Text>
+            Joaquin Esteban
           </Text>
         </Heading>
-        Joaco Esteban
+        <Box fontWeight={'regular'} fontSize={'xl'}>
+          <Text>
+            Full Stack Web Developer based on <b>Buenos Aires, Argentina</b> <br />
+            Full-Time Developer at <b>CoderHouse</b> <br />
+            Currently working on <b>SongBasket</b>, The all in one solution to turn Spotify playlists into MP3 <br />
+          </Text>
+        </Box>
       </Container>
     </div>
   )

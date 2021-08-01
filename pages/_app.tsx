@@ -37,8 +37,8 @@ const components = {
 }
 
 const fonts = {
-  heading: 'made_tommy',
-  body: 'DM Sans',
+  body: 'made_tommy',
+  heading: 'DM Sans',
 }
 
 const theme = extendTheme({
