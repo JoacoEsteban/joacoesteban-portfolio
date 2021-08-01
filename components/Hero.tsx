@@ -1,9 +1,14 @@
 import { Box, Container, Heading, Text, Link } from '@chakra-ui/react'
+import { ReactNode } from 'react'
 
-const Bold = ({ children }) => <Text fontWeight={410} display="inline">{children}</Text>
-const Link_ = ({ children, href }) => <Link className="clickable-effects no-hover-fx" href={href} target="_blank" rel="noreferrer">{children}</Link>
-const CoderLink = ({ children }) => <Link_ href="https://www.coderhouse.com">{children}</Link_>
-const SbLink = ({ children }) => <Link_ href="https://songbasket.com">{children}</Link_>
+type props = {
+  children: ReactNode
+}
+
+const Bold = ({ children }: props) => <Text fontWeight={410} display="inline">{children}</Text>
+const Link_ = ({ children, href }: props & { href: string }) => <Link className="clickable-effects no-hover-fx" href={href} target="_blank" rel="noreferrer">{children}</Link>
+const CoderLink = ({ children }: props) => <Link_ href="https://www.coderhouse.com">{children}</Link_>
+const SbLink = ({ children }: props) => <Link_ href="https://songbasket.com">{children}</Link_>
 
 export default function Hero () {
   return (
