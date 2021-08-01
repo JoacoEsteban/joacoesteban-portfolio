@@ -1,11 +1,36 @@
-// @import url("./fonts/MADE\ Tommy/stylesheet.scss");
-
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+:root {
+  --transition-time: 500ms;
+  --default-opacity-factor: 1;
+  --hover-opacity-factor: 1;
+  --hover-scale-factor: 1.1;
+  --active-opacity-factor: .7;
+  --active-scale-factor: .95;
+  // ------
+  --bezier: cubic-bezier(0, 1, 0, 1);
+  --bezier-chill: cubic-bezier(0, 1, .5, 1);
+  --bezier-chill-inverted: cubic-bezier(1, 0, 1, .5);
+  --bezier-out: cubic-bezier(1, 0.24, 1, 0.66);
+  --bezier-relaxed: cubic-bezier(0.35, 0.7, 0.25, 1);
+  --bezier-round: cubic-bezier(0, 0.5, 0.5, 1);
+  --bezier-round-inverted: cubic-bezier(.5, 0, 1, .5);
+  --bezier-symmetric: cubic-bezier(0.7, 0, 0.25, 1);
+  --bezier-symmetric-inverted: cubic-bezier(0, .7, 1, 0.25);
+  --bezier-symmetric-hard: cubic-bezier(.5, .1, .5, .9);
+  --bezier-symmetric-hard-inverted: cubic-bezier(.1, .5, .9, .5);
+  --transition-global-hard: var(--transition-time) var(--bezier);
+  --transition-global: var(--transition-time) var(--bezier-chill);
+  --hover-n-active-transitions: opacity var(--transition-global), transform var(--transition-global), box-shadow var(--transition-global);
+  --hover-n-active-transitions-hard: opacity var(--transition-global-hard), transform var(--transition-global-hard), box-shadow var(--transition-global-hard);
+  --theme-switch-transitions: opacity var(--transition-global), background-color var(--transition-global), color var(--transition-global), background var(--transition-global);
+  --theme-switch-transitions-hard: opacity var(--transition-global-hard), background-color var(--transition-global-hard), color var(--transition-global-hard), background var(--transition-global-hard);
 }
 
 html {
@@ -21,4 +46,49 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+
+.clickable-effects {
+  cursor: pointer;
+  transition: var(--hover-n-active-transitions), border var(--transition-global),
+    background-color var(--transition-global);
+  opacity: 1;
+
+  &:not(.manual-hover-state):hover,
+  &.manual-hover-state.hover {
+    opacity: var(--hover-opacity-factor);
+    transform: scale(var(--hover-scale-factor));
+
+    &.apply-shadow {
+      box-shadow: var(--card-box-shadow-std-hover);
+    }
+  }
+
+  &:not(.manual-active-state):active,
+  &.manual-active-state.active {
+    opacity: var(--active-opacity-factor);
+    transform: scale(var(--active-scale-factor));
+  }
+
+  &.soft-fx {
+    --hover-scale-factor: 1.05;
+    --active-scale-factor: 0.985;
+  }
+
+  &.super-soft-fx {
+    --hover-scale-factor: 1.01;
+    --active-scale-factor: 0.985;
+  }
+
+  &.no-hover-fx,
+  &.no-transform-fx {
+    --hover-scale-factor: 1;
+  }
+
+  &.no-active-fx,
+  &.no-transform-fx {
+    --active-scale-factor: 1;
+  }
 }

@@ -5,7 +5,7 @@ const Bold = ({ children }) => <Text fontWeight={410} display="inline">{children
 export default function Hero () {
   return (
     <div>
-      <Container margin="auto">
+      <Container margin="auto" paddingBottom="6">
         <Heading as={'h1'} size={'3xl'} fontWeight={'medium'} marginBottom={5}>
           <Text>
             Joaquin Esteban
