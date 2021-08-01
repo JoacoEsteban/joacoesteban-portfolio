@@ -1,5 +1,7 @@
 import { Box, Container, Heading, Text, Link } from '@chakra-ui/react'
 import { ReactNode } from 'react'
+import "@fontsource/dm-sans/400.css"
+import "@fontsource/dm-sans/500.css"
 
 type props = {
   children: ReactNode
