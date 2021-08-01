@@ -1,0 +1,26 @@
+.fab {
+  $size: 3em;
+  width: $size;
+  height: $size;
+  min-width: $size;
+  max-width: $size;
+  min-height: $size;
+  max-height: $size;
+  // ------
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // ------
+  border-radius: 100em;
+  padding: .5em;
+  background: white;
+  color: black;
+
+  &:not(:last-child) {
+    margin-right: .5em;
+  }
+
+  .fa {
+    font-size: 1.5em;
+  }
+}

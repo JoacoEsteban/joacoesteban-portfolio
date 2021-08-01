@@ -1,5 +1,7 @@
 import { Box, Container, Heading, Text } from '@chakra-ui/react'
 
+const Bold = ({ children }) => <Text fontWeight={410} display="inline">{children}</Text>
+
 export default function Hero () {
   return (
     <div>
@@ -11,9 +13,9 @@ export default function Hero () {
         </Heading>
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <Text>
-            Full Stack Web Developer based on <b>Buenos Aires, Argentina</b> <br />
-            Full-Time Developer at <b>CoderHouse</b> <br />
-            Currently working on <b>SongBasket</b>, The all in one solution to turn Spotify playlists into MP3 <br />
+            Full Stack Web Developer based on <Bold>Buenos Aires, Argentina</Bold> <br />
+            Full-Time Developer at <Bold>CoderHouse</Bold> <br />
+            Currently working on <Bold>SongBasket</Bold>, The all in one solution to turn Spotify playlists into MP3 <br />
           </Text>
         </Box>
       </Container>
