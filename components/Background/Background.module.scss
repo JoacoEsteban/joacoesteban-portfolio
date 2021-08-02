@@ -18,8 +18,10 @@
   font-family: var(--chakra-fonts-body);
   font-style: normal;
   font-weight: normal;
-  font-size: Max(Min(5.7vw, 100px), 30px);
+  font-size: Max(Min(5.7vw, 100px), 15px);
+  white-space: nowrap;
   line-height: 125px;
+  line-height: Max(1.25em, 80px);
   letter-spacing: 0.23em;
   text-transform: uppercase;
   text-align: center;
@@ -33,7 +35,7 @@
 
 
   svg {
-    filter: blur(234px);
+    filter: blur(92px);
     animation: three-step-fade 15s var(--bezier-symmetric) infinite;
   }
 
