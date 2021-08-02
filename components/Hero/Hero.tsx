@@ -2,6 +2,7 @@ import { Box, Container, Heading, Text, Link } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import "@fontsource/dm-sans/400.css"
 import "@fontsource/dm-sans/500.css"
+import styles from './Hero.module.scss'
 
 type props = {
   children: ReactNode
@@ -14,19 +15,19 @@ const SbLink = ({ children }: props) => <Link_ href="https://songbasket.com">{ch
 
 export default function Hero () {
   return (
-    <div>
+    <div className={styles.heroContainer}>
       <Container margin="auto" paddingBottom="6">
         <Heading as={'h1'} size={'3xl'} fontWeight={'medium'} marginBottom={5}>
-          <Text>
+          <span>
             Joaquin Esteban
-          </Text>
+          </span>
         </Heading>
         <Box fontWeight={'regular'} fontSize={'xl'}>
-          <Text>
-            Full Stack Web Developer based on <Bold>Buenos Aires, Argentina</Bold> <br />
+          <span>
+            Full Stack Web Developer based at <Bold>Buenos Aires, Argentina</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>CoderHouse</Bold></CoderLink> <br />
             Currently working on <SbLink><Bold>SongBasket</Bold>, The all in one solution to turn Spotify playlists into MP3 </SbLink><br />
-          </Text>
+          </span>
         </Box>
       </Container>
     </div>

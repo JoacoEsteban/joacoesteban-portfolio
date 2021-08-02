@@ -1,0 +1,7 @@
+.heroContainer {
+  h1 {
+    @media (max-width: 440px) {
+      font-size: var(--chakra-fontSizes-4xl);
+    }
+  }
+}
