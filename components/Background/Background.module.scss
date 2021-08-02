@@ -26,8 +26,9 @@
   text-transform: uppercase;
   text-align: center;
 
-  animation: three-step-fade 5s var(--bezier-symmetric) infinite;
-  animation-delay: calc(var(--_index, 0) * .15s);
+  --__times__: Max(var(--_titles-amount, 10), 10);
+  animation: three-step-fade calc(var(--__times__) / 2 * 1s) var(--bezier-symmetric) infinite;
+  animation-delay: calc(var(--_index, 0) * var(--__times__) / 100 * 1s);
 }
 
 .illustrationsContainer {

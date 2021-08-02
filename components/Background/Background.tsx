@@ -55,7 +55,7 @@ export default class Background extends Component {
         </div>
         <div className={styles.background}>
           <div className={styles.titlesContainer}>
-            <Container>
+            <Container style={{ '--_titles-amount': this.state.titlesAmount || 0 } as React.CSSProperties}>
               <FwTitle ref={this.firstTitleRef} />
               {
                 this.state.mounted && [...Array(this.state.titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
