@@ -1,6 +1,6 @@
 import { Box, Button, Container, Flex } from '@chakra-ui/react'
 import Header from '../components/Header/Header'
-import Hero from '../components/Hero'
+import Hero from '../components/Hero/Hero'
 import Background from '../components/Background/Background'
 
 export default function Home () {
