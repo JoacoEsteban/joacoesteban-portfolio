@@ -24,9 +24,13 @@ export default class Background extends Component {
   }
 
   getTitlesAmount (): number {
-    const value = Math.ceil(window.innerHeight / this.firstTitleRef.current.clientHeight) - 1
-    console.log(value)
-    return value
+    const el = this.firstTitleRef.current
+    if (el) {
+      const value = Math.ceil(window.innerHeight / ((el as HTMLElement).clientHeight || 0)) - 1
+      console.log(value)
+      return value
+    }
+    return 0
   }
 
   calculateTitles () {
