@@ -11,7 +11,7 @@ const Title = ({ index }: { index?: number }) => (
 
 export default class Background extends Component {
   private firstTitleRef: MutableRefObject<null>
-  private state: { mounted: boolean, titlesAmount: number }
+  state: { mounted: boolean, titlesAmount: number }
 
   constructor(props: {}) {
     super(props)
