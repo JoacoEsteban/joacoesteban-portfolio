@@ -29,13 +29,25 @@ export default class Background extends Component {
     return value
   }
 
+  calculateTitles () {
+    const value = this.getTitlesAmount()
+    if (this.state.titlesAmount !== value)
+      this.setState({ titlesAmount: this.getTitlesAmount() })
+  }
+
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.calculateTitles.bind(this))
+  }
+
   componentDidMount () {
-    this.setState({ mounted: true, titlesAmount: this.getTitlesAmount() })
+    this.setState({ mounted: true })
+    this.calculateTitles()
+    window.addEventListener('resize', this.calculateTitles.bind(this))
   }
 
   render () {
     // eslint-disable-next-line react/display-name
-    const FwTitle = forwardRef((props, ref) => <div ref={this.firstTitleRef}><Title /></div>)
+    const FwTitle = forwardRef(() => <div ref={this.firstTitleRef}><Title /></div>)
     return (
       <div>
         <div className={[styles.background, styles.illustrationsContainer].join(' ')}>
