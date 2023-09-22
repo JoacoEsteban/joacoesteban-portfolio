@@ -92,3 +92,15 @@ a {
     --active-scale-factor: 1;
   }
 }
+
+.d-contents {
+  display: contents;
+}
+
+.d-inh {
+  display: inherit;
+}
+
+img {
+  object-fit: contain;
+}
