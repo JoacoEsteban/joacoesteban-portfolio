@@ -25,8 +25,8 @@ export default function Hero () {
         </Heading>
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
-            Full Stack Web Developer based at <Bold>Buenos Aires, Argentina</Bold> <br />
-            Full-Time Developer in <CoderLink><Bold>CoderHouse</Bold></CoderLink> <br />
+            Full Stack Web Developer based in <Bold>Buenos Aires, Argentina</Bold> <br />
+            Full-Time Developer in <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
             Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
             Currently working on <SbLink><Bold>SongBasket</Bold>, The all in one solution to turn Spotify playlists into MP3 </SbLink><br />
           </span>
