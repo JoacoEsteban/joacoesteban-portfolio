@@ -12,6 +12,7 @@ const Bold = ({ children }: props) => <Text fontWeight={410} display="inline">{c
 const Link_ = ({ children, href }: props & { href: string }) => <Link className="clickable-effects no-hover-fx" href={href} target="_blank" rel="noreferrer">{children}</Link>
 const CoderLink = ({ children }: props) => <Link_ href="https://www.coderhouse.com">{children}</Link_>
 const SbLink = ({ children }: props) => <Link_ href="https://songbasket.com">{children}</Link_>
+const ConstitucionLink = ({ children }: props) => <Link_ href="https://constitucion.ar">{children}</Link_>
 
 export default function Hero () {
   return (
@@ -26,6 +27,7 @@ export default function Hero () {
           <span>
             Full Stack Web Developer based at <Bold>Buenos Aires, Argentina</Bold> <br />
             Full-Time Developer in <CoderLink><Bold>CoderHouse</Bold></CoderLink> <br />
+            Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
             Currently working on <SbLink><Bold>SongBasket</Bold>, The all in one solution to turn Spotify playlists into MP3 </SbLink><br />
           </span>
         </Box>
