@@ -4,10 +4,12 @@ import "@fontsource/dm-sans/400.css"
 import "@fontsource/dm-sans/500.css"
 import styles from './Hero.module.scss'
 import { Technology, technologies } from '../../data/technologies'
+import Img from 'next/image'
 
 type props = {
   children: ReactNode
 }
+
 
 const Bold = ({ children }: props) => <Text fontWeight={410} display="inline">{children}</Text>
 const Link_ = ({ children, href }: props & { href: string }) => <Link className="clickable-effects no-hover-fx d-inh" href={href} target="_blank">{children}</Link>
@@ -16,7 +18,7 @@ const SbLink = ({ children }: props) => <Link_ href="https://songbasket.com">{ch
 const ConstitucionLink = ({ children }: props) => <Link_ href="https://constitucion.ar">{children}</Link_>
 const Icon = ({ src, alt }: { src: string, alt: string }) => (
   <Box marginLeft={2} marginRight={2} className={styles.centerY}>
-    <img src={src} alt={alt} title={alt} width={16} height={16} />
+    <Img src={src} alt={alt} title={alt} width={16} height={16} />
   </Box>
 )
 const Tech = (technology: Technology) => (
