@@ -85,6 +85,7 @@ export default function Hero () {
             <Tech {...technologies.Nest} />
             <Tech {...technologies.PostgreSQL} />
             <Tech {...technologies.MongoDB} />
+            <Tech {...technologies.DynamoDB} />
           </Flex>
 
           <Flex>

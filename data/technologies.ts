@@ -69,5 +69,10 @@ export const technologies: { [key: string]: Technology } = {
     name: "Tauri",
     website: "https://tauri.app/",
     icon: "/assets/icons/tauri.png",
-  }
+  },
+  "DynamoDB": {
+    name: "DynamoDB",
+    website: "https://aws.amazon.com/dynamodb/",
+    icon: "/assets/icons/dynamodb.png",
+  },
 }
