@@ -11,13 +11,13 @@ export default function Illustrations () {
       <defs>
         <linearGradient id="1922d955cdb0_paint0_linear" x1="386.239" y1="264.847" x2="779.183" y2="703.708"
           gradientUnits="userSpaceOnUse">
-          <stop stop-color="#00D1FF" />
-          <stop offset="1" stop-color="#D800B5" />
+          <stop stopColor="#00D1FF" />
+          <stop offset="1" stopColor="#D800B5" />
         </linearGradient>
         <linearGradient id="1922d955cdb0_paint1_linear" x1="1241.24" y1="447.847" x2="1634.18" y2="886.707"
           gradientUnits="userSpaceOnUse">
-          <stop stop-color="#BDFF00" />
-          <stop offset="1" stop-color="#D80000" />
+          <stop stopColor="#BDFF00" />
+          <stop offset="1" stopColor="#D80000" />
         </linearGradient>
       </defs>
     </svg>
