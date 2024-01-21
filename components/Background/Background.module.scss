@@ -6,11 +6,16 @@
   z-index: -1;
   overflow: hidden;
 
-  position: absolute;
+  position: fixed;
   pointer-events: none;
 
   .titlesContainer {
-    opacity: .04;
+    opacity: .03;
+
+    >div {
+      width: unset;
+      max-width: unset;
+    }
   }
 }
 
@@ -21,14 +26,14 @@
   font-size: Max(Min(5.7vw, 100px), 15px);
   white-space: nowrap;
   line-height: 125px;
-  line-height: Max(1.25em, 80px);
+  line-height: Max(1.25em, 50px);
   letter-spacing: 0.23em;
   text-transform: uppercase;
   text-align: center;
 
   --__times__: Max(var(--_titles-amount, 10), 10);
-  animation: three-step-fade calc(var(--__times__) / 2 * 1s) var(--bezier-symmetric) infinite;
-  animation-delay: calc(var(--_index, 0) * var(--__times__) / 100 * 1s);
+  // animation: three-step-fade calc(var(--__times__) / 2 * 1s) var(--bezier-symmetric) infinite;
+  // animation-delay: calc(var(--_index, 0) * var(--__times__) / 100 * 1s);
 }
 
 .illustrationsContainer {

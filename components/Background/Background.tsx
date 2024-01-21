@@ -1,5 +1,7 @@
+'use client'
+
 import { Box, Container, Heading, Text } from '@chakra-ui/react'
-import React, { Component, forwardRef, Fragment, MutableRefObject, RefObject, useRef } from 'react'
+import React, { Component, forwardRef, Fragment, MutableRefObject, RefObject, useEffect, useRef, useState } from 'react'
 import styles from './Background.module.scss'
 import Illustrations from './Illustrations'
 
@@ -9,65 +11,59 @@ const Title = ({ index }: { index?: number }) => (
   <div className={styles.backgroundTitle} style={{ '--_index': index || 0 } as React.CSSProperties}>Full Stack Developer</div>
 )
 
-export default class Background extends Component {
-  private firstTitleRef: MutableRefObject<null>
-  state: { mounted: boolean, titlesAmount: number }
+export default function Background () {
+  const firstTitleRef = useRef<HTMLDivElement>(null)
+  const [mounted, setMounted] = useState(false)
+  const [titlesAmount, setTitlesAmount] = useState(0)
 
-  constructor(props: {}) {
-    super(props)
-    this.firstTitleRef = React.createRef()
-    this.state = {
-      mounted: false,
-      titlesAmount: 0
-    }
-    console.log(this.firstTitleRef)
-  }
+  useEffect(() => {
+    console.log('mounted???')
+    setMounted(true)
+    calculateTitles()
+    window.addEventListener('resize', calculateTitles)
+    return () => window.removeEventListener('resize', calculateTitles)
+  }, [])
 
-  getTitlesAmount (): number {
-    const el = this.firstTitleRef.current
+  console.log(firstTitleRef)
+
+  function getTitlesAmount (): number {
+    const el = firstTitleRef.current
+    console.log(el)
     if (el) {
       const value = Math.ceil(window.innerHeight / ((el as HTMLElement).clientHeight || 0)) - 1
       console.log(value)
+      console.log(el, value)
       return value
     }
     return 0
   }
 
-  calculateTitles () {
-    const value = this.getTitlesAmount()
-    if (this.state.titlesAmount !== value)
-      this.setState({ titlesAmount: this.getTitlesAmount() })
+  function calculateTitles () {
+    const value = getTitlesAmount()
+    if (titlesAmount !== value)
+      setTitlesAmount(getTitlesAmount())
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('resize', this.calculateTitles.bind(this))
-  }
 
-  componentDidMount () {
-    this.setState({ mounted: true })
-    this.calculateTitles()
-    window.addEventListener('resize', this.calculateTitles.bind(this))
-  }
+  const FwTitle = forwardRef(() => <div ref={firstTitleRef}><Title /></div>)
+  FwTitle.displayName = 'FwTitle'
 
-  render () {
+  return (
     // eslint-disable-next-line react/display-name
-    const FwTitle = forwardRef(() => <div ref={this.firstTitleRef}><Title /></div>)
-    return (
-      <div>
-        <div className={[styles.background, styles.illustrationsContainer].join(' ')}>
-          <Illustrations></Illustrations>
-        </div>
-        <div className={styles.background}>
-          <div className={styles.titlesContainer}>
-            <Container style={{ '--_titles-amount': this.state.titlesAmount || 0 } as React.CSSProperties}>
-              <FwTitle ref={this.firstTitleRef} />
-              {
-                this.state.mounted && [...Array(this.state.titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
-              }
-            </Container>
-          </div>
+    <div>
+      <div className={[styles.background, styles.illustrationsContainer].join(' ')}>
+        <Illustrations></Illustrations>
+      </div>
+      <div className={styles.background}>
+        <div className={styles.titlesContainer}>
+          <Container style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}>
+            <FwTitle />
+            {
+              mounted && [...Array(titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
+            }
+          </Container>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }

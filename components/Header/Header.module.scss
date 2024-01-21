@@ -24,3 +24,40 @@
     font-size: 1.5em;
   }
 }
+
+.headerContainer {
+  >div {
+    padding-top: .5em;
+    padding-right: .5em;
+  }
+
+  @media (max-width: 550px) {
+    font-size: min(5vw, 20px);
+  }
+
+  @media (min-width: 550px) {
+    width: 20em;
+    margin-left: auto;
+  }
+
+  position: sticky;
+  top: 0;
+  padding: 0;
+  width: 100%;
+
+  >div {
+    // width: fit-content;
+    margin: auto;
+    justify-content: space-between;
+    padding: 1em 1em;
+  }
+
+  .fab {
+    margin: 0;
+  }
+
+
+  border-radius: 0 0 2em 2em;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, .2);
+}
