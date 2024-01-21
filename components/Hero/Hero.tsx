@@ -22,7 +22,7 @@ const SbLink = ({ children }: props) =>
   </Box>
 const ConstitucionLink = ({ children }: props) => <Link_ href="https://constitucion.ar">{children}</Link_>
 const Icon = ({ src, alt }: { src: string, alt: string }) => (
-  <Box marginLeft={8} marginRight={8} className={styles.centerY}>
+  <Box marginLeft={2} marginRight={2} className={styles.centerY}>
     <Img src={src} alt={alt} title={alt} width={16} height={16} />
   </Box>
 )
@@ -36,13 +36,13 @@ const Tech = (technology: Technology) => (
 export default function Hero () {
   return (
     <div className={styles.heroContainer}>
-      <Container margin="auto" paddingBottom="16">
-        <Heading as={'h1'} marginBottom={2}>
+      <Container margin="auto" paddingBottom={6}>
+        <Heading as={'h1'}>
           <span>
             Joaquin Esteban
           </span>
         </Heading>
-        <Box fontWeight={'bold'} fontSize={'xl'} marginBottom={5}>
+        <Box fontWeight={'bold'} fontSize={'xl'} marginBottom={2}>
           <span>
             <i>Joaco (/'xoa.ko/.)</i>
           </span>
@@ -59,7 +59,7 @@ export default function Hero () {
           </span>
         </Box>
       </Container>
-      <Container margin="auto" paddingBottom="6">
+      <Container margin="auto" paddingBottom={6}>
         <Heading as={'h2'} size={'lg'} fontWeight={'medium'}>
           <span>
             Technologies
