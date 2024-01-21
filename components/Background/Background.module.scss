@@ -44,7 +44,7 @@
   opacity: .5;
 
   filter: blur(8px) brightness(0.7) contrast(3);
-  animation: three-step-fade 27s var(--bezier-chill) infinite;
+  animation: three-step-fade 27s var(--bezier-symmetric) infinite;
 
   .content {
     height: 100%;
