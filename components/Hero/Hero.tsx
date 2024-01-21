@@ -11,13 +11,18 @@ type props = {
 }
 
 
-const Bold = ({ children }: props) => <Text fontWeight={410} display="inline">{children}</Text>
+const Bold = ({ children }: props) => <Text fontWeight={700} display="inline">{children}</Text>
 const Link_ = ({ children, href }: props & { href: string }) => <Link className="clickable-effects no-hover-fx d-inh" href={href} target="_blank">{children}</Link>
 const CoderLink = ({ children }: props) => <Link_ href="https://www.coderhouse.com">{children}</Link_>
-const SbLink = ({ children }: props) => <Link_ href="https://songbasket.com">{children}</Link_>
+const SbLink = ({ children }: props) =>
+  <Box display={'inline-flex'}>
+    <Link_ href="https://songbasket.com">
+      {children}
+    </Link_>
+  </Box>
 const ConstitucionLink = ({ children }: props) => <Link_ href="https://constitucion.ar">{children}</Link_>
 const Icon = ({ src, alt }: { src: string, alt: string }) => (
-  <Box marginLeft={2} marginRight={2} className={styles.centerY}>
+  <Box marginLeft={8} marginRight={8} className={styles.centerY}>
     <Img src={src} alt={alt} title={alt} width={16} height={16} />
   </Box>
 )
@@ -31,13 +36,13 @@ const Tech = (technology: Technology) => (
 export default function Hero () {
   return (
     <div className={styles.heroContainer}>
-      <Container margin="auto" paddingBottom="6">
-        <Heading as={'h1'} size={'3xl'} fontWeight={'medium'} marginBottom={2}>
+      <Container margin="auto" paddingBottom="16">
+        <Heading as={'h1'} marginBottom={2}>
           <span>
             Joaquin Esteban
           </span>
         </Heading>
-        <Box fontWeight={'medium'} fontSize={'xl'} marginBottom={5}>
+        <Box fontWeight={'bold'} fontSize={'xl'} marginBottom={5}>
           <span>
             <i>Joaco (/'xoa.ko/.)</i>
           </span>
@@ -45,12 +50,12 @@ export default function Hero () {
 
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
-            Full Stack Web Developer based in <Bold>Buenos Aires, Argentina</Bold> <br />
+            Full Stack Web Developer based in <Bold>Torino, Italia</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
             Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
-            <Flex>
-              Currently dropping free time on <SbLink><Icon src='/assets/icons/songbasket.png' alt='SongBasket' /><Bold>SongBasket</Bold>, The all in one solution to turn Spotify playlists into MP3 </SbLink><br />
-            </Flex>
+            {/* <Flex> */}
+            Currently dropping free time on <SbLink><Icon src='/assets/icons/songbasket.png' alt='SongBasket' /><Bold>SongBasket</Bold></SbLink>, The all in one solution to turn Spotify playlists into MP3<br />
+            {/* </Flex> */}
           </span>
         </Box>
       </Container>

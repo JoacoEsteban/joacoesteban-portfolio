@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.4",
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@fontsource/dm-sans": "^4.5.0",
     "framer-motion": "^4.1.17",
-    "next": "11.0.1",
-    "react": "17.0.2",
+    "next": "latest",
     "react-dom": "17.0.2",
-    "react-fontawesome": "^1.7.1",
+    "react-icons": "^5.0.1",
     "sass": "^1.36.0"
   },
   "devDependencies": {
@@ -25,6 +25,6 @@
     "@types/react-fontawesome": "^1.6.5",
     "eslint": "7.30.0",
     "eslint-config-next": "11.0.1",
-    "typescript": "4.3.5"
+    "typescript": "latest"
   }
 }

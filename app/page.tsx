@@ -3,17 +3,17 @@ import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
 import Background from '../components/Background/Background'
 
-export default function Home () {
+export default function Index () {
   return (
     <Container>
-      <Flex flexDirection="column" height="100vh">
+      <Flex flexDirection="column" height="100vh" position="relative">
         <title>
           Joaco Esteban - Full-Stack Web Developer
         </title>
 
         <Background></Background>
         <Header></Header>
-        <Box margin="auto">
+        <Box m="auto">
           <Hero></Hero>
         </Box>
       </Flex>
