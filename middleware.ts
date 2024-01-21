@@ -1,26 +1,19 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-const HOST_REDIRECTIONS_DISABLED = process.env.HOST_REDIRECTIONS_DISABLED === 'true'
-
 export function middleware (request: NextRequest) {
   const { pathname } = request.nextUrl
   let redirection: URL | null = null
 
   try {
-    redirection = (() => {
-      if (pathname === '/') {
-        return redirectionByHost(request)
-      }
-      return redirectionByPath(request)
-    })()
+    redirection = redirectionByPath(request)
 
     if (!redirection) {
       return NextResponse.next()
     }
 
   } catch (error) {
-    return NextResponse.error()
+    return NextResponse.json({ error: 'Page not found' }, { status: 404 })
   }
 
   return NextResponse.redirect(redirection.href, {
@@ -29,25 +22,6 @@ export function middleware (request: NextRequest) {
       'cache-control': 's-maxage=3600, stale-while-revalidate'
     }
   })
-}
-
-function redirectionByHost (request: NextRequest): URL | null {
-  if (HOST_REDIRECTIONS_DISABLED) {
-    return null
-  }
-
-  const hostName = (() => {
-    const forcedHost = request.nextUrl.searchParams.get('host')
-    return forcedHost || request.nextUrl.hostname
-  })()
-
-  const [top, sub] = hostName.replace(/\.?[\w-]+.com$/, '').split('.').filter(Boolean).reverse()
-
-  if (!top || top === 'localhost') {
-    return null
-  }
-
-  return getRedirection(top, sub)
 }
 
 function redirectionByPath (request: NextRequest): URL | null {
