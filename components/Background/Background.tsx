@@ -46,6 +46,7 @@ export default function Background () {
 
 
   const FwTitle = forwardRef(() => <div ref={firstTitleRef}><Title /></div>)
+  FwTitle.displayName = 'FwTitle'
 
   return (
     // eslint-disable-next-line react/display-name
@@ -56,7 +57,7 @@ export default function Background () {
       <div className={styles.background}>
         <div className={styles.titlesContainer}>
           <Container style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}>
-            <FwTitle ref={firstTitleRef} />
+            <FwTitle />
             {
               mounted && [...Array(titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
             }
