@@ -31,6 +31,9 @@ function redirectionByPath (request: NextRequest): URL | null {
 
   const [top, sub] = parts
 
+  if (!top) {
+    return null
+  }
 
   return getRedirection(top, sub)
 }
