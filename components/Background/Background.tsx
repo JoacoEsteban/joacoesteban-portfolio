@@ -1,5 +1,7 @@
 'use client'
 
+import Spline from "@splinetool/react-spline"
+import Script from 'next/script'
 import { Box, Container, Heading, Text } from '@chakra-ui/react'
 import React, { Component, forwardRef, Fragment, MutableRefObject, RefObject, useEffect, useRef, useState } from 'react'
 import styles from './Background.module.scss'
@@ -54,8 +56,7 @@ export default function Background () {
       <div className={[styles.background, styles.illustrationsContainer].join(' ')}>
         {/* <Illustrations></Illustrations> */}
         <div className={styles.content}>
-          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.31/build/spline-viewer.js"></script>
-          <spline-viewer url="https://prod.spline.design/Y-d9TpnoP8NhUpbT/scene.splinecode"></spline-viewer>
+          <Spline scene="https://prod.spline.design/Y-d9TpnoP8NhUpbT/scene.splinecode" />
         </div>
       </div>
       <div className={[styles.background, styles.overlay].join(' ')}>
