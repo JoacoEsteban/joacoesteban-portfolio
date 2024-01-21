@@ -11,7 +11,7 @@ const buttons = [
   {
     key: 'github',
     icon: FaGithub,
-    href: 'http://github.joacoesteban.com'
+    href: '/links/github'
   },
   {
     key: 'whatsapp',
@@ -21,7 +21,7 @@ const buttons = [
   {
     key: 'linkedin',
     icon: FaLinkedin,
-    href: 'http://linkedin.joacoesteban.com'
+    href: '/links/linkedin'
   },
 ]
 
