@@ -86,6 +86,8 @@ export default function Hero () {
             </Box>
             <Tech {...technologies.GoLang} />
             <Tech {...technologies.Rust} />
+            <Tech {...technologies.Elixir} />
+            <Tech {...technologies.OCaml} />
             <Tech {...technologies.Node} />
             <Tech {...technologies.Nest} />
             <Tech {...technologies.PostgreSQL} />
