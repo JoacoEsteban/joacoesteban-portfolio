@@ -75,4 +75,14 @@ export const technologies: { [key: string]: Technology } = {
     website: "https://aws.amazon.com/dynamodb/",
     icon: "/assets/icons/dynamodb.png",
   },
+  "Elixir": {
+    name: "Elixir",
+    website: "https://elixir-lang.org/",
+    icon: "/assets/icons/elixir.png",
+  },
+  "OCaml": {
+    name: "OCaml",
+    website: "https://ocaml.org/",
+    icon: "/assets/icons/ocaml.ico",
+  },
 }
