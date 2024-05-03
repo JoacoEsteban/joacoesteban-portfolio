@@ -14,10 +14,16 @@ type props = {
 const Bold = ({ children }: props) => <Text fontWeight={700} display="inline">{children}</Text>
 const Link_ = ({ children, href }: props & { href: string }) => <Link className="clickable-effects no-hover-fx d-inh" href={href} target="_blank">{children}</Link>
 const CoderLink = ({ children }: props) => <Link_ href="https://www.coderhouse.com">{children}</Link_>
-const SbLink = ({ children }: props) =>
+const SbLink = () =>
   <Box display={'inline-flex'}>
     <Link_ href="https://songbasket.com">
-      {children}
+      <Icon src='/assets/icons/songbasket.png' alt='SongBasket' /><Bold>SongBasket</Bold>
+    </Link_>
+  </Box>
+const VindLink = () =>
+  <Box display={'inline-flex'}>
+    <Link_ href="https://github.com/joacoesteban/vind">
+      <Icon src='/assets/icons/vind.png' alt='Vind' /><Bold>Vind</Bold>
     </Link_>
   </Box>
 const ConstitucionLink = ({ children }: props) => <Link_ href="https://constitucion.ar">{children}</Link_>
@@ -53,9 +59,18 @@ export default function Hero () {
             Full Stack Web Developer based in <Bold>Torino, Italia</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
             Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
-            {/* <Flex> */}
-            Currently dropping free time on <SbLink><Icon src='/assets/icons/songbasket.png' alt='SongBasket' /><Bold>SongBasket</Bold></SbLink>, The all in one solution to turn Spotify playlists into MP3<br />
-            {/* </Flex> */}
+            <br />
+            <Box>
+              Currently dropping free time on:
+            </Box>
+            <Flex flexDirection={'column'}>
+              <div >
+                <SbLink />, The all in one solution to turn Spotify playlists into MP3<br />
+              </div>
+              <div >
+                <VindLink />, Map keys to on-screen elements and trigger clicks effortlessly<br />
+              </div>
+            </Flex>
           </span>
         </Box>
       </Container>
