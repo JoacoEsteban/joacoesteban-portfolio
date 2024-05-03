@@ -6,7 +6,7 @@ import "@fontsource/dm-sans/500.css"
 
 export const metadata = {
   title: 'Joaquin Esteban - Full-Stack Web Developer',
-  description: 'Full Stack Web Developer based in Torino, Italy. Full-Time Developer at Coderhouse. Hosting Constitucion.ar. Currently dropping free time on SongBasket, The all in one solution to turn Spotify playlists into MP3',
+  description: 'Software Engineer based in Torino, Italy. Full-Time Developer at Coderhouse. Hosting Constitucion.ar. Currently dropping free time on SongBasket, The all in one solution to turn Spotify playlists into MP3 and Vind, Map keys to on-screen elements and trigger clicks effortlessly.',
 }
 
 export default function RootLayout ({

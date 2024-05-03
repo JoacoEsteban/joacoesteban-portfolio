@@ -56,7 +56,7 @@ export default function Hero () {
 
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
-            Full Stack Web Developer based in <Bold>Torino, Italia</Bold> <br />
+            Software Engineer based in <Bold>Torino, Italia</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
             Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
             <br />
