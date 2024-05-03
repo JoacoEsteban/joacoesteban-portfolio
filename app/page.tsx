@@ -8,7 +8,7 @@ export default function Index () {
     <Container>
       <Flex flexDirection="column" height="100vh" position="relative">
         <title>
-          Joaco Esteban - Full-Stack Web Developer
+          Joaco Esteban - Software Engineer | Full-Stack Web Developer
         </title>
 
         <Background></Background>
