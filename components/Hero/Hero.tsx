@@ -22,7 +22,7 @@ const SbLink = () =>
   </Box>
 const VindLink = () =>
   <Box display={'inline-flex'}>
-    <Link_ href="https://github.com/joacoesteban/vind">
+    <Link_ href="https://vind-works.io">
       <Icon src='/assets/icons/vind.png' alt='Vind' /><Bold>Vind</Bold>
     </Link_>
   </Box>
