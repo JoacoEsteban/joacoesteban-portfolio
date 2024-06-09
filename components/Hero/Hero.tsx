@@ -43,7 +43,7 @@ export default function Hero () {
   return (
     <div className={styles.heroContainer}>
       <Container margin="auto" paddingBottom={6}>
-        <Heading as={'h1'}>
+        <Heading as={'h1'} mixBlendMode={'hard-light'}>
           <span>
             Joaquin Esteban
           </span>
@@ -51,12 +51,14 @@ export default function Hero () {
         <Box fontWeight={'bold'} fontSize={'xl'} marginBottom={2}>
           <span>
             <i>Joaco (/'xoa.ko/.)</i>
+            <br />
+            <i>I make Software. I build Systems.</i>
           </span>
         </Box>
 
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
-            Software Engineer based in <Bold>Torino, Italia</Bold> <br />
+            Software Engineer from <Bold>Buenos Aires, Argentina</Bold> based in <Bold>Torino, Italia</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
             Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
             <br />
