@@ -35,7 +35,7 @@ export default function Hero () {
     <div className={styles.headerContainer}>
       <Flex justify={'end'}>
         {buttons.map((itm, i) => (
-          <a href={itm.href} key={i} target="_blank" rel="noreferrer" className={`clickable-effects no-hover-fx ${styles.fab}`}>
+          <a href={itm.href} key={i} target="_blank" rel="noreferrer" className={`clickable-effects no-hover-fx ${styles.fab}`} title={itm.key}>
             <itm.icon></itm.icon>
           </a>
         ))}
