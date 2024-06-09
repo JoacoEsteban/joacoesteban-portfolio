@@ -1,4 +1,5 @@
 .background {
+  background: black;
   top: 0;
   left: 0;
   width: 100vw;
@@ -8,9 +9,12 @@
 
   position: fixed;
   pointer-events: none;
+  opacity: .5;
 
   .titlesContainer {
-    opacity: .03;
+    // opacity: .03;
+    color: white;
+    mix-blend-mode: overlay;
 
     >div {
       width: unset;
@@ -20,7 +24,11 @@
 }
 
 .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .backgroundTitle {
@@ -36,12 +44,14 @@
   text-align: center;
 
   --__times__: Max(var(--_titles-amount, 10), 10);
-  // animation: three-step-fade calc(var(--__times__) / 2 * 1s) var(--bezier-symmetric) infinite;
-  // animation-delay: calc(var(--_index, 0) * var(--__times__) / 100 * 1s);
+  animation: three-step-fade calc(var(--__times__) / 2 * 1s) var(--bezier-symmetric) infinite;
+  animation-delay: calc(var(--_index, 0) * var(--__times__) / 100 * 1s);
 }
 
 .illustrationsContainer {
-  opacity: .5;
+  // opacity: .5;
+  height: 100vh;
+  width: 100vw;
 
   filter: blur(8px) brightness(0.7) contrast(3);
   animation: three-step-fade 27s var(--bezier-symmetric) infinite;

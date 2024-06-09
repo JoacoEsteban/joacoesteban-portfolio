@@ -52,14 +52,14 @@ export default function Background () {
 
   return (
     // eslint-disable-next-line react/display-name
-    <div>
-      <div className={[styles.background, styles.illustrationsContainer].join(' ')}>
+    <div className={styles.background}>
+      <div className={[, styles.illustrationsContainer].join(' ')}>
         {/* <Illustrations></Illustrations> */}
         <div className={styles.content}>
           <Spline scene="https://prod.spline.design/Y-d9TpnoP8NhUpbT/scene.splinecode" />
         </div>
       </div>
-      <div className={[styles.background, styles.overlay].join(' ')}>
+      <div className={[, styles.overlay].join(' ')}>
         <div className={styles.titlesContainer}>
           <Container style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}>
             <FwTitle />
