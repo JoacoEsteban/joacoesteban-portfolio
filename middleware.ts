@@ -129,5 +129,9 @@ const list = [
   {
     keys: ['contact', 'mail', 'email'],
     url: 'mailto:me@joacoesteban.com'
+  },
+  {
+    keys: ['cv'],
+    url: makeHref('github.com/joacoesteban/cv')
   }
 ]

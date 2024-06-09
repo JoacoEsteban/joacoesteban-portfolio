@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
-import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin, FaBriefcase } from 'react-icons/fa'
 import styles from './Header.module.scss'
 
 const buttons = [
@@ -23,6 +23,11 @@ const buttons = [
     icon: FaLinkedin,
     href: '/links/linkedin'
   },
+  {
+    key: 'cv',
+    icon: FaBriefcase,
+    href: '/links/cv'
+  },
 ]
 
 export default function Hero () {
@@ -30,7 +35,7 @@ export default function Hero () {
     <div className={styles.headerContainer}>
       <Flex justify={'end'}>
         {buttons.map((itm, i) => (
-          <a href={itm.href} key={i} target="_blank" rel="noreferrer" className={`clickable-effects no-hover-fx ${styles.fab}`}>
+          <a href={itm.href} key={i} target="_blank" rel="noreferrer" className={`clickable-effects no-hover-fx ${styles.fab}`} title={itm.key}>
             <itm.icon></itm.icon>
           </a>
         ))}
