@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
-import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin, FaBriefcase } from 'react-icons/fa'
 import styles from './Header.module.scss'
 
 const buttons = [
@@ -22,6 +22,11 @@ const buttons = [
     key: 'linkedin',
     icon: FaLinkedin,
     href: '/links/linkedin'
+  },
+  {
+    key: 'cv',
+    icon: FaBriefcase,
+    href: '/links/cv'
   },
 ]
 
