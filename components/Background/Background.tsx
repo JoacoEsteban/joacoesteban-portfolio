@@ -1,16 +1,19 @@
 'use client'
 
 import Spline from "@splinetool/react-spline"
-import Script from 'next/script'
-import { Box, Container, Heading, Text } from '@chakra-ui/react'
-import React, { Component, forwardRef, Fragment, MutableRefObject, RefObject, useEffect, useRef, useState } from 'react'
+import { Container } from '@chakra-ui/react'
+import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import styles from './Background.module.scss'
-import Illustrations from './Illustrations'
+import { technologies } from '../../data/technologies'
+import { shuffle } from '../../utils/shuffle'
 
-
-
+function titleText () {
+  return shuffle(Object.keys(technologies)).join(' ')
+}
 const Title = ({ index }: { index?: number }) => (
-  <div className={styles.backgroundTitle} style={{ '--_index': index || 0 } as React.CSSProperties}>Full Stack Developer</div>
+  <div className={styles.backgroundTitle} style={{ '--_index': index || 0 } as React.CSSProperties}>
+    {titleText()}
+  </div>
 )
 
 export default function Background () {
@@ -19,22 +22,16 @@ export default function Background () {
   const [titlesAmount, setTitlesAmount] = useState(0)
 
   useEffect(() => {
-    console.log('mounted???')
     setMounted(true)
     calculateTitles()
     window.addEventListener('resize', calculateTitles)
     return () => window.removeEventListener('resize', calculateTitles)
   }, [])
 
-  console.log(firstTitleRef)
-
   function getTitlesAmount (): number {
     const el = firstTitleRef.current
-    console.log(el)
     if (el) {
       const value = Math.ceil(window.innerHeight / ((el as HTMLElement).clientHeight || 0)) - 1
-      console.log(value)
-      console.log(el, value)
       return value
     }
     return 0
@@ -54,7 +51,6 @@ export default function Background () {
     // eslint-disable-next-line react/display-name
     <div className={styles.background}>
       <div className={[, styles.illustrationsContainer].join(' ')}>
-        {/* <Illustrations></Illustrations> */}
         <div className={styles.content}>
           <Spline scene="https://prod.spline.design/Y-d9TpnoP8NhUpbT/scene.splinecode" />
         </div>

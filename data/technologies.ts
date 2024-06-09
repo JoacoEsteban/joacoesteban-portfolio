@@ -90,4 +90,29 @@ export const technologies: { [key: string]: Technology } = {
     website: "https://rxjs.dev/",
     icon: "/assets/icons/rxjs.png",
   },
+  "Sass": {
+    name: "Sass",
+    website: "https://sass-lang.com/",
+    icon: "/assets/icons/sass.ico",
+  },
+  "CSS": {
+    name: "CSS",
+    website: "https://www.w3.org/Style/CSS/",
+    icon: "todo" // "/assets/icons/css.ico",
+  },
+  "HTML": {
+    name: "HTML",
+    website: "https://www.w3.org/html/",
+    icon: "todo" // "/assets/icons/html.ico",
+  },
+  "JavaScript": {
+    name: "JavaScript",
+    website: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    icon: "todo" // "/assets/icons/javascript.ico",
+  },
+  "TypeScript": {
+    name: "TypeScript",
+    website: "https://www.typescriptlang.org/",
+    icon: "todo" // "/assets/icons/typescript.ico",
+  },
 }
