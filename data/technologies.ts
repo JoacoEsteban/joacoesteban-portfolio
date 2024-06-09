@@ -85,4 +85,9 @@ export const technologies: { [key: string]: Technology } = {
     website: "https://ocaml.org/",
     icon: "/assets/icons/ocaml.ico",
   },
+  "RxJS": {
+    name: "RxJS",
+    website: "https://rxjs.dev/",
+    icon: "/assets/icons/rxjs.png",
+  },
 }

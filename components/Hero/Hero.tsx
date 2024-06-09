@@ -83,7 +83,7 @@ export default function Hero () {
         <Box fontWeight={'regular'} fontSize={'xl'} marginBottom={5}>
           That I've been working with, and I'm currently working with, that I like and I love.
         </Box>
-        <Box fontWeight={'regular'} fontSize={'xl'}>
+        <Flex flexDirection={'column'} fontWeight={'regular'} fontSize={'xl'} gap={1}>
           <Flex>
             <Box marginRight={2}>
               <Bold>Frontend</Bold>
@@ -93,11 +93,12 @@ export default function Hero () {
             <Tech {...technologies.Svelte} />
             <Tech {...technologies.Next} />
             <Tech {...technologies.Nuxt} />
+            <Tech {...technologies.RxJS} />
           </Flex>
 
           <Flex>
             <Box marginRight={2}>
-              <Bold>Backend</Bold>
+              <Bold>Systems</Bold>
             </Box>
             <Tech {...technologies.GoLang} />
             <Tech {...technologies.Rust} />
@@ -108,17 +109,11 @@ export default function Hero () {
             <Tech {...technologies.PostgreSQL} />
             <Tech {...technologies.MongoDB} />
             <Tech {...technologies.DynamoDB} />
-          </Flex>
-
-          <Flex>
-            <Box marginRight={2}>
-              <Bold>Desktop</Bold>
-            </Box>
             <Tech {...technologies.Electron} />
             <Tech {...technologies.Tauri} />
           </Flex>
 
-        </Box>
+        </Flex>
       </Container>
     </div>
   )
