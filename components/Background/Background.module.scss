@@ -44,7 +44,7 @@
 
   --__times__: Max(var(--_titles-amount, 10), 10);
   animation: three-step-fade calc(var(--__times__) / 2 * .2s) var(--bezier-symmetric) infinite;
-  animation-delay: calc(var(--_index, 0) * var(--__times__) / 500 * .2s);
+  animation-delay: calc(var(--_index, 0) * var(--__times__) / 250 * .2s);
 }
 
 .illustrationsContainer {
@@ -66,13 +66,16 @@
 @keyframes three-step-fade {
   0% {
     opacity: 1;
+    transform: scale(1);
   }
 
   50% {
     opacity: .01;
+    transform: scale(.98);
   }
 
   100% {
     opacity: 1;
+    transform: scale(1);
   }
 }
