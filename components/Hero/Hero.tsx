@@ -60,7 +60,6 @@ export default function Hero () {
           <span>
             Software Engineer from <Bold>Buenos Aires, Argentina</Bold> based in <Bold>Torino, Italia</Bold> <br />
             Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
-            Hosting <ConstitucionLink><Bold>Constitucion.ar</Bold></ConstitucionLink><br />
             <br />
             <Box>
               Currently dropping free time on:
