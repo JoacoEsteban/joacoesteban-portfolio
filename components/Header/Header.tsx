@@ -24,13 +24,20 @@ const buttons = [
     href: '/links/linkedin'
   },
   {
+    key: 'upwork',
+    icon: () => (
+      <img src="/logos/upwork.svg" alt="upwork logo" />
+    ),
+    href: '/links/upwork'
+  },
+  {
     key: 'cv',
     icon: FaBriefcase,
     href: '/links/cv'
   },
 ]
 
-export default function Hero () {
+export default function Header () {
   return (
     <div className={styles.headerContainer}>
       <Flex justify={'end'}>

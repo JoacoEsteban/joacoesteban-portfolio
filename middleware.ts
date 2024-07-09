@@ -133,5 +133,9 @@ const list = [
   {
     keys: ['cv'],
     url: makeHref('github.com/joacoesteban/cv')
+  },
+  {
+    keys: ['upwork'],
+    url: makeHref('upwork.com/freelancers/joaco')
   }
 ]

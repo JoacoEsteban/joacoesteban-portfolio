@@ -36,7 +36,7 @@
   }
 
   @media (min-width: 550px) {
-    width: 20em;
+    width: fit-content;
     margin-left: auto;
   }
 
@@ -50,6 +50,7 @@
     margin: auto;
     justify-content: space-between;
     padding: 1em 1em;
+    gap: 1em;
   }
 
   .fab {
