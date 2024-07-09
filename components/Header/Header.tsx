@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import { FaEnvelope, FaGithub, FaWhatsapp, FaLinkedin, FaBriefcase } from 'react-icons/fa'
 import styles from './Header.module.scss'
+import Image from 'next/image'
 
 const buttons = [
   {
@@ -26,7 +27,7 @@ const buttons = [
   {
     key: 'upwork',
     icon: () => (
-      <img src="/logos/upwork.svg" alt="upwork logo" />
+      <Image width={32} height={32} src="/logos/upwork.svg" alt="upwork logo" />
     ),
     href: '/links/upwork'
   },
