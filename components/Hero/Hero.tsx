@@ -59,17 +59,16 @@ export default function Hero () {
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
             Software Engineer from <Bold>Buenos Aires, Argentina</Bold> based in <Bold>Torino, Italia</Bold> <br />
-            Full-Time Developer at <CoderLink><Bold>Coderhouse</Bold></CoderLink> <br />
-            <br />
+            {/* <br /> */}
             <Box>
-              Currently dropping free time on:
+              Currently working on:
             </Box>
             <Flex flexDirection={'column'}>
               <div >
-                <SbLink />, The all in one solution to turn Spotify playlists into MP3<br />
+                <VindLink />, Map keys to on-screen elements and trigger clicks effortlessly<br />
               </div>
               <div >
-                <VindLink />, Map keys to on-screen elements and trigger clicks effortlessly<br />
+                <SbLink />, The all in one solution to turn Spotify playlists into MP3<br />
               </div>
             </Flex>
           </span>
