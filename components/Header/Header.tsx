@@ -41,7 +41,7 @@ const buttons = [
 export default function Header () {
   return (
     <div className={styles.headerContainer}>
-      <Flex justify={'end'}>
+      <Flex justify={'end'} wrap={'wrap'}>
         {buttons.map((itm, i) => (
           <a href={itm.href} key={i} target="_blank" rel="noreferrer" className={`clickable-effects no-hover-fx ${styles.fab}`} title={itm.key}>
             <itm.icon></itm.icon>
