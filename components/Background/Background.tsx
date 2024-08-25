@@ -52,7 +52,7 @@ export default function Background () {
     <div className={styles.background}>
       <div className={[, styles.illustrationsContainer].join(' ')}>
         <div className={styles.content}>
-          <Spline scene="https://prod.spline.design/Y-d9TpnoP8NhUpbT/scene.splinecode" />
+          <Spline scene="https://prod.spline.design/LOcaID1thP-buwcC/scene.splinecode" />
         </div>
       </div>
       <div className={[, styles.overlay].join(' ')}>
