@@ -128,7 +128,7 @@ const list = [
   },
   {
     keys: ['contact', 'mail', 'email'],
-    url: 'mailto:me@joacoesteban.com'
+    url: 'mailto:dev@joaco.io',
   },
   {
     keys: ['cv'],

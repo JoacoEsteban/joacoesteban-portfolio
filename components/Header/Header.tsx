@@ -7,7 +7,7 @@ const buttons = [
   {
     key: 'email',
     icon: FaEnvelope,
-    href: 'mailto:dev@joacoesteban.com'
+    href: 'mailto:dev@joaco.io'
   },
   {
     key: 'github',
