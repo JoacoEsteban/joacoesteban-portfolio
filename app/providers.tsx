@@ -1,6 +1,17 @@
 'use client'
 
-import { ChakraProps, ChakraProvider, DarkMode, defineStyle, extendBaseTheme, extendTheme, propNames, ThemeComponentProps, ThemeConfig, ThemeProvider } from '@chakra-ui/react'
+import {
+  ChakraProps,
+  ChakraProvider,
+  DarkMode,
+  defineStyle,
+  extendBaseTheme,
+  extendTheme,
+  propNames,
+  ThemeComponentProps,
+  ThemeConfig,
+  ThemeProvider,
+} from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
 import { theme } from '@chakra-ui/theme'
 
@@ -32,7 +43,7 @@ const components = {
       maxWidth: '80em',
       marginLeft: 'auto',
       marginRight: 'auto',
-    })
+    }),
   },
   Heading: {
     baseStyle: (props: ThemeComponentProps) => ({
@@ -48,10 +59,6 @@ const _theme = extendBaseTheme({
   styles,
 })
 
-export function Providers ({ children }: { children: React.ReactNode }) {
-  return (
-    <ChakraProvider theme={_theme}>
-      {children}
-    </ChakraProvider>
-  )
+export function Providers({ children }: { children: React.ReactNode }) {
+  return <ChakraProvider theme={_theme}>{children}</ChakraProvider>
 }

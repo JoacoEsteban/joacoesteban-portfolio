@@ -3,7 +3,7 @@ import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
 import Background from '../components/Background/Background'
 
-export default function Index () {
+export default function Index() {
   return (
     <Container>
       <Flex flexDirection="column" height="100vh" position="relative">
