@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/next'
 export const metadata = {
   title: 'Joaquin Esteban - Software Engineer | Full-Stack Web Developer',
   description:
-    'Software Engineer based in Torino, Italy. Currently working on Vind, Map keys to on-screen elements and trigger clicks effortlessly and SongBasket, The all in one solution to turn Spotify playlists into MP3',
+    'Software Engineer based in Buenos Aires. Currently working on Vind, Map keys to on-screen elements and trigger clicks effortlessly and SongBasket, The all in one solution to turn Spotify playlists into MP3',
 }
 
 export default function RootLayout({

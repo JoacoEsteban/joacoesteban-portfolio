@@ -74,8 +74,8 @@ export default function Hero() {
 
         <Box fontWeight={'regular'} fontSize={'xl'}>
           <span>
-            Software Engineer from <Bold>Buenos Aires, Argentina</Bold> based in{' '}
-            <Bold>Torino, Italia</Bold> <br />
+            Software Engineer from <Bold>Buenos Aires, Argentina</Bold>
+            <br />
             {/* <br /> */}
             <Box>Currently working on:</Box>
             <Flex flexDirection={'column'}>
