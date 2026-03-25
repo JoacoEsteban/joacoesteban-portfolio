@@ -43,12 +43,27 @@ const VindLink = () => (
     </Link_>
   </Box>
 )
+const AmortaLink = () => (
+  <Box display={'inline-flex'}>
+    <Link_ href="https://amorta.joaco.io">
+      <Icon src="/assets/icons/amorta.svg" alt="Amorta" />
+      <Bold>Amorta</Bold>
+    </Link_>
+  </Box>
+)
 const ConstitucionLink = ({ children }: props) => (
   <Link_ href="https://constitucion.ar">{children}</Link_>
 )
 const Icon = ({ src, alt }: { src: string; alt: string }) => (
   <Box marginLeft={2} marginRight={2} className={styles.centerY}>
-    <Img src={src} alt={alt} title={alt} width={16} height={16} />
+    <Img
+      src={src}
+      alt={alt}
+      title={alt}
+      width={16}
+      height={16}
+      unoptimized={src.endsWith('.svg')}
+    />
   </Box>
 )
 const Tech = (technology: Technology) => (
@@ -82,6 +97,11 @@ export default function Hero() {
               <div>
                 <VindLink />, Map keys to on-screen elements and trigger clicks
                 effortlessly
+                <br />
+              </div>
+              <div>
+                <AmortaLink />, Interactive French amortization calculator with
+                shareable result URLs.
                 <br />
               </div>
               <div>
