@@ -45,7 +45,7 @@ const VindLink = () => (
 )
 const AmortaLink = () => (
   <Box display={'inline-flex'}>
-    <Link_ href="https://amorta.joaco.io">
+    <Link_ href="https://amorta.loan">
       <Icon src="/assets/icons/amorta.svg" alt="Amorta" />
       <Bold>Amorta</Bold>
     </Link_>
