@@ -1,4 +1,3 @@
-import { Box, Container, Heading, Text, Link, Flex } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 import '@fontsource/dm-sans/400.css'
 import '@fontsource/dm-sans/500.css'
@@ -11,51 +10,52 @@ type props = {
 }
 
 const Bold = ({ children }: props) => (
-  <Text fontWeight={700} display="inline">
-    {children}
-  </Text>
+  <span className="font-bold">{children}</span>
 )
+
 const Link_ = ({ children, href }: props & { href: string }) => (
-  <Link
-    className="clickable-effects no-hover-fx d-inh"
-    href={href}
-    target="_blank"
-  >
+  <a className="clickable-effects no-hover-fx d-inh" href={href} target="_blank" rel="noreferrer">
     {children}
-  </Link>
+  </a>
 )
+
 const CoderLink = ({ children }: props) => (
   <Link_ href="https://www.coderhouse.com">{children}</Link_>
 )
+
 const SbLink = () => (
-  <Box display={'inline-flex'}>
+  <span className="inline-flex">
     <Link_ href="https://songbasket.com">
       <Icon src="/assets/icons/songbasket.png" alt="SongBasket" />
       <Bold>SongBasket</Bold>
     </Link_>
-  </Box>
+  </span>
 )
+
 const VindLink = () => (
-  <Box display={'inline-flex'}>
+  <span className="inline-flex">
     <Link_ href="https://vind-works.io">
       <Icon src="/assets/icons/vind.png" alt="Vind" />
       <Bold>Vind</Bold>
     </Link_>
-  </Box>
+  </span>
 )
+
 const AmortaLink = () => (
-  <Box display={'inline-flex'}>
+  <span className="inline-flex">
     <Link_ href="https://amorta.loan">
       <Icon src="/assets/icons/amorta.svg" alt="Amorta" />
       <Bold>Amorta</Bold>
     </Link_>
-  </Box>
+  </span>
 )
+
 const ConstitucionLink = ({ children }: props) => (
   <Link_ href="https://constitucion.ar">{children}</Link_>
 )
+
 const Icon = ({ src, alt }: { src: string; alt: string }) => (
-  <Box marginLeft={2} marginRight={2} className={styles.centerY}>
+  <span className={`mx-2 ${styles.centerY}`}>
     <Img
       src={src}
       alt={alt}
@@ -64,8 +64,9 @@ const Icon = ({ src, alt }: { src: string; alt: string }) => (
       height={16}
       unoptimized={src.endsWith('.svg')}
     />
-  </Box>
+  </span>
 )
+
 const Tech = (technology: Technology) => (
   <Link_ href={technology.website}>
     <Icon src={technology.icon} alt={technology.name} />
@@ -75,25 +76,24 @@ const Tech = (technology: Technology) => (
 export default function Hero() {
   return (
     <div className={styles.heroContainer}>
-      <Container margin="auto" paddingBottom={6}>
-        <Heading as={'h1'} mixBlendMode={'hard-light'}>
+      <div className="mx-auto pb-6 max-w-[80em]">
+        <h1 className="mix-blend-hard-light">
           <span>Joaquin Esteban</span>
-        </Heading>
-        <Box fontWeight={'bold'} fontSize={'xl'} marginBottom={2}>
+        </h1>
+        <div className="font-bold text-xl mb-2">
           <span>
             <i>Joaco (/'xoa.ko/.)</i>
             <br />
             <i>I make Software. I build Systems.</i>
           </span>
-        </Box>
+        </div>
 
-        <Box fontWeight={'regular'} fontSize={'xl'}>
+        <div className="text-xl">
           <span>
             Software Engineer from <Bold>Buenos Aires, Argentina</Bold>
             <br />
-            {/* <br /> */}
-            <Box>Currently working on:</Box>
-            <Flex flexDirection={'column'}>
+            <div>Currently working on:</div>
+            <div className="flex flex-col">
               <div>
                 <VindLink />, Map keys to on-screen elements and trigger clicks
                 effortlessly
@@ -109,40 +109,35 @@ export default function Hero() {
                 into MP3
                 <br />
               </div>
-            </Flex>
+            </div>
           </span>
-        </Box>
-      </Container>
-      <Container margin="auto" paddingBottom={6}>
-        <Heading as={'h2'} size={'lg'} fontWeight={'medium'}>
+        </div>
+      </div>
+      <div className="mx-auto pb-6 max-w-[80em]">
+        <h2 className="!text-2xl font-medium">
           <span>Technologies</span>
-        </Heading>
-        <Box fontWeight={'regular'} fontSize={'xl'} marginBottom={5}>
+        </h2>
+        <div className="text-xl mb-5">
           That I've been working with, and I'm currently working with, that I
           like and I love.
-        </Box>
-        <Flex
-          flexDirection={'column'}
-          fontWeight={'regular'}
-          fontSize={'xl'}
-          gap={1}
-        >
-          <Flex>
-            <Box marginRight={2}>
+        </div>
+        <div className="flex flex-col text-xl gap-1">
+          <div className="flex">
+            <span className="mr-2">
               <Bold>Frontend</Bold>
-            </Box>
+            </span>
             <Tech {...technologies.Vue} />
             <Tech {...technologies.React} />
             <Tech {...technologies.Svelte} />
             <Tech {...technologies.Next} />
             <Tech {...technologies.Nuxt} />
             <Tech {...technologies.RxJS} />
-          </Flex>
+          </div>
 
-          <Flex>
-            <Box marginRight={2}>
+          <div className="flex">
+            <span className="mr-2">
               <Bold>Systems</Bold>
-            </Box>
+            </span>
             <Tech {...technologies.GoLang} />
             <Tech {...technologies.Rust} />
             <Tech {...technologies.Elixir} />
@@ -154,9 +149,9 @@ export default function Hero() {
             <Tech {...technologies.DynamoDB} />
             <Tech {...technologies.Electron} />
             <Tech {...technologies.Tauri} />
-          </Flex>
-        </Flex>
-      </Container>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

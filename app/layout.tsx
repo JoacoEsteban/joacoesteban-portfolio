@@ -1,7 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
+import '../styles/tailwind.css'
 import '../styles/globals.scss'
 import '../styles/fonts/MADE Tommy/stylesheet.scss'
-import { Providers } from './providers'
 import '@fontsource/dm-sans/400.css'
 import '@fontsource/dm-sans/500.css'
 import { Analytics } from '@vercel/analytics/next'
@@ -23,7 +23,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-8407180754020844" />
       </head>
       <body>
-        <Providers>{children}</Providers>
+        {children}
         <Analytics />
       </body>
       <GoogleAnalytics gaId={'G-Q3MX5BCNHT'} />

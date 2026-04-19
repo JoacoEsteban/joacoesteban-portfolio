@@ -1,7 +1,6 @@
 'use client'
 
 import Spline from "@splinetool/react-spline"
-import { Container } from '@chakra-ui/react'
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 import styles from './Background.module.scss'
 import { technologies } from '../../data/technologies'
@@ -10,6 +9,7 @@ import { shuffle } from '../../utils/shuffle'
 function titleText () {
   return shuffle(Object.keys(technologies)).join(' ')
 }
+
 const Title = ({ index }: { index?: number }) => (
   <div className={styles.backgroundTitle} style={{ '--_index': index || 0 } as React.CSSProperties}>
     {titleText()}
@@ -43,12 +43,10 @@ export default function Background () {
       setTitlesAmount(getTitlesAmount())
   }
 
-
   const FwTitle = forwardRef(() => <div ref={firstTitleRef}><Title /></div>)
   FwTitle.displayName = 'FwTitle'
 
   return (
-    // eslint-disable-next-line react/display-name
     <div className={styles.background}>
       <div className={[, styles.illustrationsContainer].join(' ')}>
         <div className={styles.content}>
@@ -57,12 +55,15 @@ export default function Background () {
       </div>
       <div className={[, styles.overlay].join(' ')}>
         <div className={styles.titlesContainer}>
-          <Container style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}>
+          <div
+            className="max-w-[80em] mx-auto"
+            style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}
+          >
             <FwTitle />
             {
               mounted && [...Array(titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
             }
-          </Container>
+          </div>
         </div>
       </div>
     </div>
