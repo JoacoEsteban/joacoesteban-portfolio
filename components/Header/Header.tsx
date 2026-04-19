@@ -3,7 +3,8 @@ import {
   FaGithub,
   FaWhatsapp,
   FaLinkedin,
-  FaBriefcase
+  FaBriefcase,
+  FaPen
 } from 'react-icons/fa'
 import styles from './Header.module.scss'
 import Image from 'next/image'
@@ -47,6 +48,11 @@ const buttons = [
     key: 'cv',
     icon: FaBriefcase,
     href: '/links/cv'
+  },
+  {
+    key: 'blog',
+    icon: FaPen,
+    href: '/blog'
   }
 ]
 
@@ -54,18 +60,20 @@ export default function Header() {
   return (
     <div className={styles.headerContainer}>
       <div className="flex justify-end flex-wrap">
-        {buttons.map((itm, i) => (
-          <a
-            href={itm.href}
-            key={i}
-            target="_blank"
-            rel="noreferrer"
-            className={`clickable-effects no-hover-fx ${styles.fab}`}
-            title={itm.key}
-          >
-            <itm.icon />
-          </a>
-        ))}
+        {buttons.map((itm, i) => {
+          const isInternal = itm.href.startsWith('/')
+          return (
+            <a
+              href={itm.href}
+              key={i}
+              {...(!isInternal && { target: '_blank', rel: 'noreferrer' })}
+              className={`clickable-effects no-hover-fx ${styles.fab}`}
+              title={itm.key}
+            >
+              <itm.icon />
+            </a>
+          )
+        })}
       </div>
     </div>
   )

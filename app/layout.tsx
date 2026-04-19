@@ -6,10 +6,21 @@ import '@fontsource/dm-sans/400.css'
 import '@fontsource/dm-sans/500.css'
 import { Analytics } from '@vercel/analytics/next'
 
-export const metadata = {
-  title: 'Joaquin Esteban - Software Engineer | Full-Stack Web Developer',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://joaco.io'),
+  title: {
+    template: '%s | Joaco Esteban',
+    default: 'Joaquin Esteban - Software Engineer | Full-Stack Web Developer',
+  },
   description:
     'Software Engineer based in Buenos Aires. Currently working on Vind, Map keys to on-screen elements and trigger clicks effortlessly and SongBasket, The all in one solution to turn Spotify playlists into MP3',
+  openGraph: {
+    siteName: 'Joaco Esteban',
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

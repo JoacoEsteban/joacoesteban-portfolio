@@ -1,0 +1,44 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 2rem 0 0;
+  font-family: made_tommy, sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.arrow {
+  font-size: 0.9em;
+  transition: transform 0.2s var(--bezier-chill);
+
+  .back:hover & {
+    transform: translateX(-2px);
+  }
+}
+
+.sep {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.current {
+  color: rgba(255, 255, 255, 0.25);
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
