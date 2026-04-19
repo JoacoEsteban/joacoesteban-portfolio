@@ -50,7 +50,10 @@ export default function Background () {
     <div className={styles.background}>
       <div className={[, styles.illustrationsContainer].join(' ')}>
         <div className={styles.content}>
-          <Spline scene="https://prod.spline.design/LOcaID1thP-buwcC/scene.splinecode" />
+          <Spline
+            scene="https://prod.spline.design/LOcaID1thP-buwcC/scene.splinecode"
+            onLoad={(app) => (app as any)._renderer?.setPixelRatio(0.2)}
+          />
         </div>
       </div>
       <div className={[, styles.overlay].join(' ')}>
