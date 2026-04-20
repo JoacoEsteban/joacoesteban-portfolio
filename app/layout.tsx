@@ -5,6 +5,7 @@ import '../styles/fonts/MADE Tommy/stylesheet.scss'
 import '@fontsource/dm-sans/400.css'
 import '@fontsource/dm-sans/500.css'
 import { Analytics } from '@vercel/analytics/next'
+import ClientRoot from '../components/ClientRoot'
 
 import type { Metadata } from 'next'
 
@@ -34,7 +35,9 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-8407180754020844" />
       </head>
       <body>
-        {children}
+        <ClientRoot>
+          {children}
+        </ClientRoot>
         <Analytics />
       </body>
       <GoogleAnalytics gaId={'G-Q3MX5BCNHT'} />

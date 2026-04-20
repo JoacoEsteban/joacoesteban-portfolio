@@ -1,6 +1,4 @@
-import Header from '../components/Header/Header'
 import Hero from '../components/Hero/Hero'
-import Background from '../components/Background/Background'
 
 export default function Index() {
   return (
@@ -10,8 +8,6 @@ export default function Index() {
           Joaco Esteban - Software Engineer | Full-Stack Web Developer
         </title>
 
-        <Background />
-        <Header />
         <div className="m-auto">
           <Hero />
         </div>

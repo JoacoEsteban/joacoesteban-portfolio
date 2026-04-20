@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa'
 import styles from './Header.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function UpworkIcon() {
   return <Image width={16} height={16} src="/logos/upwork.svg" alt="Upwork" />
@@ -35,17 +36,19 @@ export default function Header() {
         {navItems.map((item, i) => {
           const isInternal = item.href.startsWith('/')
           const Icon = item.icon
-          return (
-            <a
-              key={item.key}
-              href={item.href}
-              {...(!isInternal && { target: '_blank', rel: 'noreferrer' })}
-              className={styles.item}
-              style={{ '--i': i } as React.CSSProperties}
-            >
-              <span className={styles.iconWrap}>
-                <Icon />
-              </span>
+          const props = {
+            key: item.key,
+            className: styles.item,
+            style: { '--i': i } as React.CSSProperties,
+          }
+          return isInternal ? (
+            <Link href={item.href} {...props}>
+              <span className={styles.iconWrap}><Icon /></span>
+              <span className={styles.label}>{item.label}</span>
+            </Link>
+          ) : (
+            <a href={item.href} target="_blank" rel="noreferrer" {...props}>
+              <span className={styles.iconWrap}><Icon /></span>
               <span className={styles.label}>{item.label}</span>
             </a>
           )

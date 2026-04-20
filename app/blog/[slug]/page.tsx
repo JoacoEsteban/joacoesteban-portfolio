@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import BlogPost from '@/components/Blog/BlogPost'
 import BlogNav from '@/components/Blog/BlogNav'
-import Background from '@/components/Background/Background'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -50,7 +49,6 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <div className="max-w-[80em] mx-auto">
-      <Background />
       <BlogNav postTitle={post.title} />
       <BlogPost post={post} />
     </div>

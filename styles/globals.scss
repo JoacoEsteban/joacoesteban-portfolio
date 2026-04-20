@@ -161,3 +161,18 @@ h5,
 h6 {
   font-family: made_tommy, sans-serif;
 }
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 400ms var(--bezier-relaxed) both;
+}

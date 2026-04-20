@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog'
 import BlogList from '@/components/Blog/BlogList'
-import Background from '@/components/Background/Background'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -20,7 +19,6 @@ export default async function BlogPage() {
 
   return (
     <div className="max-w-[80em] mx-auto">
-      <Background />
       <BlogList posts={posts} />
     </div>
   )
