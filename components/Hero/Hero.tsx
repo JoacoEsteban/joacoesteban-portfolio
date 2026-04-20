@@ -1,156 +1,97 @@
-import { ReactNode } from 'react'
-import '@fontsource/dm-sans/400.css'
-import '@fontsource/dm-sans/500.css'
+'use client'
+import { useEffect, useState } from 'react'
 import styles from './Hero.module.scss'
 import { Technology, technologies } from '../../data/technologies'
 import Img from 'next/image'
 
-type props = {
-  children: ReactNode
-}
-
-const Bold = ({ children }: props) => (
-  <span className="font-bold">{children}</span>
-)
-
-const Link_ = ({ children, href }: props & { href: string }) => (
-  <a className="clickable-effects no-hover-fx d-inh" href={href} target="_blank" rel="noreferrer">
-    {children}
+const TechIcon = (t: Technology) => (
+  <a
+    className={styles.techIcon}
+    href={t.website}
+    target="_blank"
+    rel="noreferrer"
+    title={t.name}
+    aria-label={t.name}
+  >
+    <Img
+      src={t.icon}
+      alt={t.name}
+      width={16}
+      height={16}
+      unoptimized={t.icon.endsWith('.svg')}
+    />
   </a>
 )
 
-const CoderLink = ({ children }: props) => (
-  <Link_ href="https://www.coderhouse.com">{children}</Link_>
+type TechGroupProps = { label: string; items: Technology[] }
+const TechGroup = ({ label, items }: TechGroupProps) => (
+  <div className={styles.techGroup}>
+    <span className={styles.techLabel}>{label}</span>
+    {items.map(t => <TechIcon key={t.name} {...t} />)}
+  </div>
 )
 
-const SbLink = () => (
-  <span className="inline-flex">
-    <Link_ href="https://songbasket.com">
-      <Icon src="/assets/icons/songbasket.png" alt="SongBasket" />
-      <Bold>SongBasket</Bold>
-    </Link_>
-  </span>
-)
-
-const VindLink = () => (
-  <span className="inline-flex">
-    <Link_ href="https://vind-works.io">
-      <Icon src="/assets/icons/vind.png" alt="Vind" />
-      <Bold>Vind</Bold>
-    </Link_>
-  </span>
-)
-
-const AmortaLink = () => (
-  <span className="inline-flex">
-    <Link_ href="https://amorta.loan">
-      <Icon src="/assets/icons/amorta.svg" alt="Amorta" />
-      <Bold>Amorta</Bold>
-    </Link_>
-  </span>
-)
-
-const ConstitucionLink = ({ children }: props) => (
-  <Link_ href="https://constitucion.ar">{children}</Link_>
-)
-
-const Icon = ({ src, alt }: { src: string; alt: string }) => (
-  <span className={`mx-2 ${styles.centerY}`}>
-    <Img
-      src={src}
-      alt={alt}
-      title={alt}
-      width={16}
-      height={16}
-      unoptimized={src.endsWith('.svg')}
-    />
-  </span>
-)
-
-const Tech = (technology: Technology) => (
-  <Link_ href={technology.website}>
-    <Icon src={technology.icon} alt={technology.name} />
-  </Link_>
+type ProjectProps = { href: string; icon: string; name: string; desc: string; iconUnoptimized?: boolean }
+const ProjectItem = ({ href, icon, name, desc, iconUnoptimized }: ProjectProps) => (
+  <a className={styles.projectItem} href={href} target="_blank" rel="noreferrer">
+    <span className={styles.projectIconWrap}>
+      <Img src={icon} alt={name} width={14} height={14} unoptimized={iconUnoptimized} />
+    </span>
+    <span className={styles.projectName}>{name}</span>
+    <span className={styles.projectSep}>—</span>
+    <span className={styles.projectDesc}>{desc}</span>
+  </a>
 )
 
 export default function Hero() {
+  const t = technologies
+  const [animate, setAnimate] = useState(false)
+  useEffect(() => { setAnimate(true) }, [])
+
   return (
-    <div className={styles.heroContainer}>
-      <div className="mx-auto pb-6 max-w-[80em]">
-        <h1 className="mix-blend-hard-light">
-          <span>Joaquin Esteban</span>
-        </h1>
-        <div className="font-bold text-xl mb-2">
-          <span>
-            <i>Joaco (/'xoa.ko/.)</i>
-            <br />
-            <i>I make Software. I build Systems.</i>
-          </span>
+    <div className={`${styles.heroContainer} ${animate ? styles.animate : ''}`}>
+      <div className={styles.heroMain}>
+
+        <div className={styles.heroLeft}>
+          <h1 className={styles.name}>
+            <span className={styles.nameLine}>Joaquin</span>
+            <span className={styles.nameLine}>Esteban</span>
+          </h1>
+          <p className={styles.phonetic}>Joaco · /ˈxoa.ko/</p>
         </div>
 
-        <div className="text-xl">
-          <span>
-            Software Engineer from <Bold>Buenos Aires, Argentina</Bold>
-            <br />
-            <div>Currently working on:</div>
-            <div className="flex flex-col">
-              <div>
-                <VindLink />, Map keys to on-screen elements and trigger clicks
-                effortlessly
-                <br />
-              </div>
-              <div>
-                <AmortaLink />, Interactive French amortization calculator with
-                shareable result URLs.
-                <br />
-              </div>
-              <div>
-                <SbLink />, The all in one solution to turn Spotify playlists
-                into MP3
-                <br />
-              </div>
-            </div>
-          </span>
+        <div className={styles.heroRight}>
+          <p className={styles.tagline}>I make Software.<br />I build Systems.</p>
+          <p className={styles.location}>Buenos Aires, Argentina</p>
+          <div className={styles.projectList}>
+            <ProjectItem
+              href="https://vind-works.io"
+              icon="/assets/icons/vind.png"
+              name="Vind"
+              desc="Map keys to on-screen elements"
+            />
+            <ProjectItem
+              href="https://amorta.loan"
+              icon="/assets/icons/amorta.svg"
+              name="Amorta"
+              desc="French amortization calculator"
+              iconUnoptimized
+            />
+            <ProjectItem
+              href="https://songbasket.com"
+              icon="/assets/icons/songbasket.png"
+              name="SongBasket"
+              desc="Spotify playlists → MP3"
+            />
+          </div>
         </div>
+
       </div>
-      <div className="mx-auto pb-6 max-w-[80em]">
-        <h2 className="!text-2xl font-medium">
-          <span>Technologies</span>
-        </h2>
-        <div className="text-xl mb-5">
-          That I've been working with, and I'm currently working with, that I
-          like and I love.
-        </div>
-        <div className="flex flex-col text-xl gap-1">
-          <div className="flex">
-            <span className="mr-2">
-              <Bold>Frontend</Bold>
-            </span>
-            <Tech {...technologies.Vue} />
-            <Tech {...technologies.React} />
-            <Tech {...technologies.Svelte} />
-            <Tech {...technologies.Next} />
-            <Tech {...technologies.Nuxt} />
-            <Tech {...technologies.RxJS} />
-          </div>
 
-          <div className="flex">
-            <span className="mr-2">
-              <Bold>Systems</Bold>
-            </span>
-            <Tech {...technologies.GoLang} />
-            <Tech {...technologies.Rust} />
-            <Tech {...technologies.Elixir} />
-            <Tech {...technologies.OCaml} />
-            <Tech {...technologies.Node} />
-            <Tech {...technologies.Nest} />
-            <Tech {...technologies.PostgreSQL} />
-            <Tech {...technologies.MongoDB} />
-            <Tech {...technologies.DynamoDB} />
-            <Tech {...technologies.Electron} />
-            <Tech {...technologies.Tauri} />
-          </div>
-        </div>
+      <div className={styles.techRow}>
+        <TechGroup label="Frontend" items={[t.Vue, t.React, t.Svelte, t.Next, t.Nuxt, t.RxJS]} />
+        <span className={styles.techDivider} aria-hidden />
+        <TechGroup label="Systems" items={[t.GoLang, t.Rust, t.Elixir, t.OCaml, t.Node, t.Nest, t.PostgreSQL, t.MongoDB, t.DynamoDB, t.Electron, t.Tauri]} />
       </div>
     </div>
   )
