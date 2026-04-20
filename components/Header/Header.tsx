@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react'
 import {
   FaEnvelope,
   FaGithub,
@@ -9,72 +11,46 @@ import {
 import styles from './Header.module.scss'
 import Image from 'next/image'
 
-const buttons = [
-  {
-    key: 'email',
-    icon: FaEnvelope,
-    href: 'mailto:dev@joaco.io'
-  },
-  {
-    key: 'github',
-    icon: FaGithub,
-    href: '/links/github'
-  },
-  {
-    key: 'whatsapp',
-    icon: FaWhatsapp,
-    href: 'https://wa.me/541123869287'
-  },
-  {
-    key: 'linkedin',
-    icon: FaLinkedin,
-    href: '/links/linkedin'
-  },
-  {
-    key: 'upwork',
-    icon: function Icon() {
-      return (
-        <Image
-          width={32}
-          height={32}
-          src="/logos/upwork.svg"
-          alt="upwork logo"
-        />
-      )
-    },
-    href: '/links/upwork'
-  },
-  {
-    key: 'cv',
-    icon: FaBriefcase,
-    href: '/links/cv'
-  },
-  {
-    key: 'blog',
-    icon: FaPen,
-    href: '/blog'
-  }
+function UpworkIcon() {
+  return <Image width={16} height={16} src="/logos/upwork.svg" alt="Upwork" />
+}
+
+const navItems = [
+  { key: 'email', label: 'Email', icon: FaEnvelope, href: 'mailto:dev@joaco.io' },
+  { key: 'github', label: 'GitHub', icon: FaGithub, href: '/links/github' },
+  { key: 'whatsapp', label: 'WhatsApp', icon: FaWhatsapp, href: 'https://wa.me/541123869287' },
+  { key: 'linkedin', label: 'LinkedIn', icon: FaLinkedin, href: '/links/linkedin' },
+  { key: 'upwork', label: 'Upwork', icon: UpworkIcon, href: '/links/upwork' },
+  { key: 'cv', label: 'CV', icon: FaBriefcase, href: '/links/cv' },
+  { key: 'blog', label: 'Blog', icon: FaPen, href: '/blog' },
 ]
 
 export default function Header() {
+  const [animate, setAnimate] = useState(false)
+  useEffect(() => { setAnimate(true) }, [])
+
   return (
-    <div className={styles.headerContainer}>
-      <div className="flex justify-end flex-wrap">
-        {buttons.map((itm, i) => {
-          const isInternal = itm.href.startsWith('/')
+    <header className={styles.header}>
+      <nav className={`${styles.pill} ${animate ? styles.animate : ''}`}>
+        {navItems.map((item, i) => {
+          const isInternal = item.href.startsWith('/')
+          const Icon = item.icon
           return (
             <a
-              href={itm.href}
-              key={i}
+              key={item.key}
+              href={item.href}
               {...(!isInternal && { target: '_blank', rel: 'noreferrer' })}
-              className={`clickable-effects no-hover-fx ${styles.fab}`}
-              title={itm.key}
+              className={styles.item}
+              style={{ '--i': i } as React.CSSProperties}
             >
-              <itm.icon />
+              <span className={styles.iconWrap}>
+                <Icon />
+              </span>
+              <span className={styles.label}>{item.label}</span>
             </a>
           )
         })}
-      </div>
-    </div>
+      </nav>
+    </header>
   )
 }
