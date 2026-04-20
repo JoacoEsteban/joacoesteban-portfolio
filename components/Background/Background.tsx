@@ -22,11 +22,16 @@ export default function Background () {
   const [titlesAmount, setTitlesAmount] = useState(0)
 
   useEffect(() => {
-    setMounted(true)
+    const timer = setTimeout(() => setMounted(true), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
     calculateTitles()
     window.addEventListener('resize', calculateTitles)
     return () => window.removeEventListener('resize', calculateTitles)
-  }, [])
+  }, [mounted])
 
   function getTitlesAmount (): number {
     const el = firstTitleRef.current
@@ -48,27 +53,29 @@ export default function Background () {
 
   return (
     <div className={styles.background}>
-      <div className={[, styles.illustrationsContainer].join(' ')}>
-        <div className={styles.content}>
-          <Spline
-            scene="https://prod.spline.design/LOcaID1thP-buwcC/scene.splinecode"
-            onLoad={(app) => (app as any)._renderer?.setPixelRatio(0.2)}
-          />
-        </div>
-      </div>
-      <div className={[, styles.overlay].join(' ')}>
-        <div className={styles.titlesContainer}>
-          <div
-            className="max-w-[80em] mx-auto"
-            style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}
-          >
-            <FwTitle />
-            {
-              mounted && [...Array(titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)
-            }
+      {mounted && (
+        <>
+          <div className={[, styles.illustrationsContainer].join(' ')}>
+            <div className={styles.content}>
+              <Spline
+                scene="https://prod.spline.design/LOcaID1thP-buwcC/scene.splinecode"
+                onLoad={(app) => (app as any)._renderer?.setPixelRatio(0.2)}
+              />
+            </div>
           </div>
-        </div>
-      </div>
+          <div className={[, styles.overlay].join(' ')}>
+            <div className={styles.titlesContainer}>
+              <div
+                className="max-w-[80em] mx-auto"
+                style={{ '--_titles-amount': titlesAmount || 0 } as React.CSSProperties}
+              >
+                <FwTitle />
+                {[...Array(titlesAmount || 0)].map((itm, i) => <Title key={i} index={i + 1} />)}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }
