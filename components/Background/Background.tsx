@@ -31,7 +31,7 @@ export default function Background () {
     calculateTitles()
     window.addEventListener('resize', calculateTitles)
     return () => window.removeEventListener('resize', calculateTitles)
-  }, [mounted])
+  }, [mounted, calculateTitles])
 
   function getTitlesAmount (): number {
     const el = firstTitleRef.current
