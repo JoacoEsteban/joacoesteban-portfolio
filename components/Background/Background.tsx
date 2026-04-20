@@ -1,7 +1,7 @@
 'use client'
 
 import Spline from "@splinetool/react-spline"
-import React, { forwardRef, useEffect, useRef, useState } from 'react'
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react'
 import styles from './Background.module.scss'
 import { technologies } from '../../data/technologies'
 import { shuffle } from '../../utils/shuffle'
@@ -21,6 +21,21 @@ export default function Background () {
   const [mounted, setMounted] = useState(false)
   const [titlesAmount, setTitlesAmount] = useState(0)
 
+  const getTitlesAmount = useCallback((): number => {
+    const el = firstTitleRef.current
+    if (el) {
+      const value = Math.ceil(window.innerHeight / ((el as HTMLElement).clientHeight || 0)) - 1
+      return value
+    }
+    return 0
+  }, [])
+
+  const calculateTitles = useCallback(() => {
+    const value = getTitlesAmount()
+    if (titlesAmount !== value)
+      setTitlesAmount(getTitlesAmount())
+  }, [titlesAmount, getTitlesAmount])
+
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 1000)
     return () => clearTimeout(timer)
@@ -32,21 +47,6 @@ export default function Background () {
     window.addEventListener('resize', calculateTitles)
     return () => window.removeEventListener('resize', calculateTitles)
   }, [mounted, calculateTitles])
-
-  function getTitlesAmount (): number {
-    const el = firstTitleRef.current
-    if (el) {
-      const value = Math.ceil(window.innerHeight / ((el as HTMLElement).clientHeight || 0)) - 1
-      return value
-    }
-    return 0
-  }
-
-  function calculateTitles () {
-    const value = getTitlesAmount()
-    if (titlesAmount !== value)
-      setTitlesAmount(getTitlesAmount())
-  }
 
   const FwTitle = forwardRef(() => <div ref={firstTitleRef}><Title /></div>)
   FwTitle.displayName = 'FwTitle'
