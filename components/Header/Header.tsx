@@ -17,9 +17,9 @@ function UpworkIcon() {
 }
 
 const navItems = [
-  { key: 'email', label: 'Email', icon: FaEnvelope, href: 'mailto:dev@joaco.io' },
+  { key: 'email', label: 'Email', icon: FaEnvelope, href: 'mailto:dev@joaco.io', external: true },
   { key: 'github', label: 'GitHub', icon: FaGithub, href: '/links/github' },
-  { key: 'whatsapp', label: 'WhatsApp', icon: FaWhatsapp, href: 'https://wa.me/541123869287' },
+  { key: 'whatsapp', label: 'WhatsApp', icon: FaWhatsapp, href: 'https://wa.me/541123869287', external: true },
   { key: 'linkedin', label: 'LinkedIn', icon: FaLinkedin, href: '/links/linkedin' },
   { key: 'upwork', label: 'Upwork', icon: UpworkIcon, href: '/links/upwork' },
   { key: 'cv', label: 'CV', icon: FaBriefcase, href: '/links/cv' },
@@ -34,23 +34,18 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={`${styles.pill} ${animate ? styles.animate : ''}`}>
         {navItems.map((item, i) => {
-          const isInternal = item.href.startsWith('/')
           const Icon = item.icon
-          const props = {
-            key: item.key,
-            className: styles.item,
-            style: { '--i': i } as React.CSSProperties,
-          }
-          return isInternal ? (
-            <Link href={item.href} {...props}>
+          return (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={styles.item}
+              style={{ '--i': i } as React.CSSProperties}
+              {...(item.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+            >
               <span className={styles.iconWrap}><Icon /></span>
               <span className={styles.label}>{item.label}</span>
             </Link>
-          ) : (
-            <a href={item.href} target="_blank" rel="noreferrer" {...props}>
-              <span className={styles.iconWrap}><Icon /></span>
-              <span className={styles.label}>{item.label}</span>
-            </a>
           )
         })}
       </nav>
